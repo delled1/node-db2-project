@@ -11,7 +11,7 @@ const getAll = () => {
 const getById = id => {
 
   return db.select("*")
-    .from("accounts")
+    .from("cars")
     .where("id", id)
     .limit(1)
 

@@ -18,12 +18,12 @@ router.get("/", async (req, res) => {
 
 
 // [GET] /api/cars/:id returns a car by the given id.
-router.get("/:id", checkCarId(), async (req, res) => {
+router.get("/:id", checkCarId(), async (req, res, next) => {
     try {
-        const result = await cars.getById(req.params.id)
+        const [result] = await cars.getById(req.params.id)
         res.json(result)
     } catch (err) {
-        res.status(400).json(err)
+        next(err)
     }
 })
 
