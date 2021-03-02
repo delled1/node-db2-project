@@ -27,14 +27,6 @@ router.get("/:id", checkCarId(), async (req, res, next) => {
     }
 })
 
-router.post('/', async ( req, res, next) => {
-    try{
-        const result = await cars.create(req.body)
-        res.json(result)
-    } catch (err) {
-        next(err)
-    }
-})
 
 // [POST] /api/cars returns the created car. Leading or trailing whitespace on budget name should be trimmed before saving to db.
 
